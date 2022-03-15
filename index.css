@@ -1,0 +1,127 @@
+*,
+html,
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  --naranja: #f2a950;
+  --amarillo: #fdcd55;
+  font-family: "Roboto", sans-serif;
+}
+
+nav.navigation {
+  width: 100vw;
+  height: 124px;
+  border-bottom: 1px solid #000000;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  padding: 0 35px 5px 35px;
+  margin-bottom: 25px;
+}
+nav.navigation .logo {
+  width: 344px;
+  height: 62px;
+}
+
+nav.navigation .carrito {
+  width: 152px;
+  height: 80px;
+}
+
+.container {
+  width: 100vw;
+}
+
+.banner {
+  width: 100%;
+}
+.banner img {
+  width: 100%;
+}
+.hr {
+  margin: 12px 0;
+  width: 100vw;
+  border-bottom: 1px solid #000000;
+}
+nav.menu {
+  width: 100vw;
+  background-color: #333a40;
+  height: 81px;
+  color: #fff;
+}
+nav.menu ul {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  gap: 30px;
+  padding: 0 50px;
+  align-items: center;
+  list-style: none;
+}
+nav.menu ul li {
+  font-size: 18px;
+  transition: all 0.2s ease-out;
+  cursor: pointer;
+}
+nav.menu ul li.menu-active {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.items {
+  padding: 30px 12.5%;
+}
+.items h2 {
+  font-size: 30px;
+  text-transform: uppercase;
+  text-align: center;
+}
+.items .hr {
+  width: 100%;
+  border-width: 2px;
+}
+
+.card-container {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.product-card {
+  max-width: 262px;
+  min-height: 327px;
+  border: 1px solid rgba(0, 0, 0, 0.11);
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 1rem;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.product-card img {
+  max-width: 175px;
+  height: auto;
+}
+.product-card h4 {
+  font-weight: bold;
+}
+.product-card p.price {
+  align-self: start;
+  font-weight: bold;
+}
+.add-to-cart {
+  width: 96px;
+  height: 33px;
+  background: #f2a950;
+  border: 1px solid #cccccc;
+}
+
+footer.footer {
+  width: 100vw;
+  height: 30px;
+  font-weight: bold;
+  text-align: center;
+}
