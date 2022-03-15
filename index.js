@@ -305,6 +305,8 @@ let menuItems = document.querySelectorAll("nav.menu ul li");
 let titulo = document.getElementById("title");
 let contenedor = document.querySelector(".card-container");
 let active = document.querySelector(".menu-active");
+let contador = 0;
+let itemsCarrito = document.getElementById("itemsCarrito")
 
 menuItems.forEach((element) => {
   element.addEventListener("click", cambiarCategoria);
@@ -334,7 +336,7 @@ function getCard(item) {
       ${item.description}
     </p>
     <p class="price">$${item.price}</p>
-    <button class="add-to-cart">Add to cart</button>
+    <button onclick="aumentarContador()" class="add-to-cart">Add to cart</button>
   `;
 
   let div = document.createElement("div");
@@ -363,3 +365,11 @@ function start() {
 }
 
 start();
+
+
+function aumentarContador(){
+  contador++;
+  if (contador >0 ){
+    itemsCarrito.innerText = `${contador} items`
+  }
+}

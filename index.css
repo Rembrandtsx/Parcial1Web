@@ -27,6 +27,8 @@ nav.navigation .logo {
 nav.navigation .carrito {
   width: 152px;
   height: 80px;
+  display: flex;
+  align-items: center;
 }
 
 .container {
