@@ -318,7 +318,7 @@ function cambiarCategoria(element) {
   );
   limpiar();
   titulo.innerText = categoriaElegida.name;
-
+  toogleActive(element.target)
   categoriaElegida.products.forEach((el) => {
     let divCard = getCard(el);
     contenedor.appendChild(divCard);
