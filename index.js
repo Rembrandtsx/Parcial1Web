@@ -312,6 +312,9 @@ let tablaTotal = document.getElementById("total");
 let orderDetailEl = document.querySelector(".order-detail");
 let cancelOrderBtn = document.querySelector("button.cancel");
 let confirmOrderBtn = document.querySelector("button.confirm");
+let modalEl = document.querySelector(".modal");
+let finalCancelEl = document.querySelector(".cancel-deny");
+let finalConfirmEl = document.querySelector(".cancel-confirm");
 
 let carrito = [];
 let agregados = [];
@@ -320,9 +323,12 @@ let contador = 0;
 menuItems.forEach((element) => {
   element.addEventListener("click", cambiarCategoria);
 });
+finalCancelEl.addEventListener("click", denyCancel);
+finalConfirmEl.addEventListener("click", confirmCancel);
 carritoBtn.addEventListener("click", mostrarDetalleOrden);
 cancelOrderBtn.addEventListener("click", cancelOrder);
 confirmOrderBtn.addEventListener("click", confirmOrder);
+
 function cambiarCategoria(element) {
   let catpos = 0;
   let categoriaElegida = productos.find(
@@ -469,4 +475,17 @@ function confirmOrder() {
     })
   );
 }
-function cancelOrder() {}
+function cancelOrder() {
+  modalEl.classList.remove("display-none");
+}
+
+function denyCancel() {
+  modalEl.classList.add("display-none");
+}
+function confirmCancel() {
+  modalEl.classList.add("display-none");
+  carrito = [];
+  agregados = [];
+  pintarDetail();
+  itemsCarrito.innerText = "";
+}
