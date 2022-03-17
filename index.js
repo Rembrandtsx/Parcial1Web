@@ -315,7 +315,8 @@ let confirmOrderBtn = document.querySelector("button.confirm");
 let modalEl = document.querySelector(".modal");
 let finalCancelEl = document.querySelector(".cancel-deny");
 let finalConfirmEl = document.querySelector(".cancel-confirm");
-
+let menu = document.querySelector("nav.menu");
+let menuOpenerSvgs = document.querySelectorAll("nav.menu ul li svg");
 let carrito = [];
 let agregados = [];
 let contador = 0;
@@ -323,11 +324,18 @@ let contador = 0;
 menuItems.forEach((element) => {
   element.addEventListener("click", cambiarCategoria);
 });
+menuOpenerSvgs.forEach((element) => {
+  element.addEventListener("click", openMenu);
+});
 finalCancelEl.addEventListener("click", denyCancel);
 finalConfirmEl.addEventListener("click", confirmCancel);
 carritoBtn.addEventListener("click", mostrarDetalleOrden);
 cancelOrderBtn.addEventListener("click", cancelOrder);
 confirmOrderBtn.addEventListener("click", confirmOrder);
+
+function openMenu() {
+  menu.classList.add("open");
+}
 
 function cambiarCategoria(element) {
   let catpos = 0;
@@ -337,6 +345,7 @@ function cambiarCategoria(element) {
   catpos = productos.indexOf(categoriaElegida);
   limpiar();
   titulo.innerText = categoriaElegida.name;
+  menu.classList.remove("open");
   toogleActive(element.target);
   categoriaElegida.products.forEach((el, index) => {
     let divCard = getCard(el, catpos, index);
