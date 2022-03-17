@@ -121,9 +121,83 @@ nav.menu ul li.menu-active {
   border: 1px solid #cccccc;
 }
 
+.order-detail {
+  margin: 30px 15%;
+}
+.order-detail table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 10px;
+}
+
+.order-detail table tbody tr:nth-child(odd) {
+  background-color: #c4c4c4;
+}
+.order-detail table tbody tr:nth-child(even) {
+  background-color: #fff;
+}
+.order-detail table tr {
+  height: 45px;
+}
+.order-detail table tr th {
+  font-weight: 500;
+  text-align: start;
+}
+.table-buttons button {
+  background: #fdcd55;
+  border-radius: 3px;
+  width: 31px;
+  height: 32px;
+  border: none;
+  margin-right: 0.5em;
+  color: #fff;
+  font-weight: 700;
+}
+
+.table-footer {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+}
+.table-footer p {
+  font-weight: bold;
+}
+.table-footer .button-container .cancel {
+  width: 95px;
+  height: 47px;
+  font-size: 18px;
+  line-height: 21px;
+
+  text-align: center;
+
+  color: #ffffff;
+  background: #8c162c;
+  border: 1px solid #000000;
+}
+
+.table-footer .button-container .confirm {
+  font-size: 18px;
+  line-height: 21px;
+
+  text-align: center;
+
+  color: #ffffff;
+  width: 143px;
+  height: 48px;
+  left: 1086px;
+  top: 942px;
+
+  background: #708c32;
+  border: 1px solid #000000;
+}
+
 footer.footer {
   width: 100vw;
   height: 30px;
   font-weight: bold;
   text-align: center;
+}
+.display-none {
+  display: none;
 }

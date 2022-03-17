@@ -305,38 +305,52 @@ let menuItems = document.querySelectorAll("nav.menu ul li");
 let titulo = document.getElementById("title");
 let contenedor = document.querySelector(".card-container");
 let active = document.querySelector(".menu-active");
+let itemsCarrito = document.getElementById("itemsCarrito");
+let carritoBtn = document.getElementById("carrito");
+let tabla = document.getElementById("tabla");
+let tablaTotal = document.getElementById("total");
+let orderDetailEl = document.querySelector(".order-detail");
+let cancelOrderBtn = document.querySelector("button.cancel");
+let confirmOrderBtn = document.querySelector("button.confirm");
+
+let carrito = [];
+let agregados = [];
 let contador = 0;
-let itemsCarrito = document.getElementById("itemsCarrito")
 
 menuItems.forEach((element) => {
   element.addEventListener("click", cambiarCategoria);
 });
-
+carritoBtn.addEventListener("click", mostrarDetalleOrden);
+cancelOrderBtn.addEventListener("click", cancelOrder);
+confirmOrderBtn.addEventListener("click", confirmOrder);
 function cambiarCategoria(element) {
+  let catpos = 0;
   let categoriaElegida = productos.find(
     (cat) => cat.name.toLowerCase() === element.target.innerText.toLowerCase()
   );
+  catpos = productos.indexOf(categoriaElegida);
   limpiar();
   titulo.innerText = categoriaElegida.name;
-  toogleActive(element.target)
-  categoriaElegida.products.forEach((el) => {
-    let divCard = getCard(el);
+  toogleActive(element.target);
+  categoriaElegida.products.forEach((el, index) => {
+    let divCard = getCard(el, catpos, index);
     contenedor.appendChild(divCard);
   });
 }
 
-function getCard(item) {
+function getCard(item, catpos, itempos) {
+  item.price;
   let cardHtml = `      
     <img
       src="${item.image}"
-      alt=""
+      alt="${item.name}"
     />
     <h4>${item.name}</h4>
     <p>
       ${item.description}
     </p>
     <p class="price">$${item.price}</p>
-    <button onclick="aumentarContador()" class="add-to-cart">Add to cart</button>
+    <button onclick="agregarAlCarrito(${catpos}, ${itempos})" class="add-to-cart">Add to cart</button>
   `;
 
   let div = document.createElement("div");
@@ -353,23 +367,106 @@ function toogleActive(liitem) {
   active.classList.remove("menu-active");
   active = liitem;
   liitem.classList.add("menu-active");
+
+  contenedor.classList.remove("display-none");
+  orderDetailEl.classList.add("display-none");
 }
 
 function start() {
   titulo.innerText = productos[0].name;
 
-  productos[0].products.forEach((el) => {
-    let divCard = getCard(el);
+  productos[0].products.forEach((el, index) => {
+    let divCard = getCard(el, 0, index);
     contenedor.appendChild(divCard);
   });
 }
 
 start();
 
-
-function aumentarContador(){
+function aumentarContador() {
   contador++;
-  if (contador >0 ){
-    itemsCarrito.innerText = `${contador} items`
+  if (contador > 0) {
+    itemsCarrito.innerText = `${contador} items`;
   }
 }
+
+// order detail
+
+function agregarAlCarrito(catPos, elPos) {
+  aumentarContador();
+  let item = productos[catPos].products[elPos];
+  let strAgregado = "" + catPos + elPos;
+  if (agregados.includes(strAgregado)) {
+    let i = agregados.indexOf(strAgregado);
+    carrito[i].quantity++;
+  } else {
+    item.quantity = 1;
+    carrito.push(item);
+    agregados.push(strAgregado);
+  }
+  pintarDetail();
+}
+
+function pintarDetail() {
+  tabla.innerHTML = "";
+  let total = 0;
+  carrito.forEach((el, index) => {
+    total += el.price * el.quantity;
+    let elementTemplate = `<tr>
+  <td>${index + 1}</td>
+  <td>${el.quantity}</td>
+  <td>${el.name}</td>
+  <td>${el.price}</td>
+  <td>${(Math.round(el.price * el.quantity * 100) / 100).toFixed(2)}</td>
+  <td class="table-buttons">
+    <button class="plus" onclick="aumentarItemCarrito(${index})">+</button>
+    <button class="minus" onclick="disminuirItemCarrito(${index})">-</button>
+  </td>
+</tr>`;
+
+    tabla.innerHTML += elementTemplate;
+  });
+  tablaTotal.innerText = `Total: $${(Math.round(total * 100) / 100).toFixed(
+    2
+  )}`;
+}
+
+function aumentarItemCarrito(index) {
+  aumentarContador();
+  carrito[index].quantity++;
+  pintarDetail();
+}
+
+function disminuirItemCarrito(index) {
+  contador--;
+  if (contador < 1) {
+    itemsCarrito.innerText = "";
+  } else {
+    itemsCarrito.innerText = `${contador} items`;
+  }
+  carrito[index].quantity--;
+  if (carrito[index].quantity == 0) {
+    carrito.splice(index, 1);
+    agregados.splice(index, 1);
+  }
+  pintarDetail();
+}
+
+function mostrarDetalleOrden() {
+  contenedor.classList.add("display-none");
+  orderDetailEl.classList.remove("display-none");
+  title.innerText = "Order Detail";
+}
+function confirmOrder() {
+  console.log(
+    carrito.map(({ price, description, quantity }, index) => {
+      return {
+        item: index,
+        quantity,
+        description,
+        unitPrice: price,
+      };
+    })
+  );
+}
+function cancelOrder() {}

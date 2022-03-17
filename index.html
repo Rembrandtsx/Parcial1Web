@@ -15,10 +15,14 @@
   </head>
   <body>
     <nav class="navigation">
-      <img src="./img/logo.svg" alt="" class="logo" />
+      <img src="./img/logo.svg" alt="Logo restaurante" class="logo" />
 
-      <div class="carrito">
-        <img src="./img/carrito.svg" alt="" class="carrito-svg" />
+      <div class="carrito" id="carrito">
+        <img
+          src="./img/carrito.svg"
+          alt="Icono del carrito"
+          class="carrito-svg"
+        />
         <p class="item-count" id="itemsCarrito"></p>
       </div>
     </nav>
@@ -40,6 +44,27 @@
         <h2 id="title">Burguers</h2>
         <div class="hr"></div>
         <div class="card-container"></div>
+        <div class="order-detail display-none">
+          <table>
+            <thead>
+              <th>Item</th>
+              <th>Qty.</th>
+              <th>Description</th>
+              <th>Unit Price</th>
+              <th>Amount</th>
+              <th>Modify</th>
+            </thead>
+            <tbody id="tabla"></tbody>
+          </table>
+          <div class="table-footer">
+            <p id="total">Total: $0.00</p>
+
+            <div class="button-container">
+              <button class="cancel">Cancel</button>
+              <button class="confirm">Confirm Order</button>
+            </div>
+          </div>
+        </div>
       </section>
 
       <footer class="footer">
