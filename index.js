@@ -428,11 +428,13 @@ function pintarDetail() {
   carrito.forEach((el, index) => {
     total += el.price * el.quantity;
     let elementTemplate = `<tr>
-  <td>${index + 1}</td>
-  <td>${el.quantity}</td>
-  <td>${el.name}</td>
-  <td>${el.price}</td>
-  <td>${(Math.round(el.price * el.quantity * 100) / 100).toFixed(2)}</td>
+  <td class="tindex">${index + 1}</td>
+  <td class="tquantity">${el.quantity}</td>
+  <td class="tname">${el.name}</td>
+  <td class="tprice">${el.price}</td>
+  <td class="tprice2">${(
+    Math.round(el.price * el.quantity * 100) / 100
+  ).toFixed(2)}</td>
   <td class="table-buttons">
     <button class="plus" onclick="aumentarItemCarrito(${index})">+</button>
     <button class="minus" onclick="disminuirItemCarrito(${index})">-</button>
@@ -476,7 +478,7 @@ function confirmOrder() {
   console.log(
     carrito.map(({ price, description, quantity }, index) => {
       return {
-        item: index,
+        item: index + 1,
         quantity,
         description,
         unitPrice: price,
@@ -486,10 +488,25 @@ function confirmOrder() {
 }
 function cancelOrder() {
   modalEl.classList.remove("display-none");
+
+  let w = document.documentElement.clientWidth || window.innerWidth;
+  if (w <= 600) {
+    // Probably mobile
+    orderDetailEl.classList.add("display-none");
+    titulo.classList.add("display-none");
+    menu.classList.add("display-none");
+  }
 }
 
 function denyCancel() {
   modalEl.classList.add("display-none");
+  let w = document.documentElement.clientWidth || window.innerWidth;
+  if (w <= 600) {
+    // Probably mobile
+    orderDetailEl.classList.remove("display-none");
+    titulo.classList.remove("display-none");
+    menu.classList.remove("display-none");
+  }
 }
 function confirmCancel() {
   modalEl.classList.add("display-none");
@@ -497,4 +514,11 @@ function confirmCancel() {
   agregados = [];
   pintarDetail();
   itemsCarrito.innerText = "";
+  let w = document.documentElement.clientWidth || window.innerWidth;
+  if (w <= 600) {
+    // Probably mobile
+    orderDetailEl.classList.remove("display-none");
+    titulo.classList.remove("display-none");
+    menu.classList.remove("display-none");
+  }
 }

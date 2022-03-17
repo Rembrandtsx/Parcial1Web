@@ -26,135 +26,138 @@
         <p class="item-count" id="itemsCarrito"></p>
       </div>
     </nav>
-    <div class="container">
-      <div class="banner">
-        <img src="./img/banner.svg" alt="" />
-      </div>
-      <div class="hr"></div>
-      <nav class="menu">
-        <ul>
-          <li class="menu-active">
-            Burguers
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              fill="currentColor"
-              class="bi bi-arrow-down"
-              viewBox="0 0 16 16"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z"
-              />
-            </svg>
-          </li>
-          <li>
-            Tacos
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              fill="currentColor"
-              class="bi bi-arrow-down"
-              viewBox="0 0 16 16"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z"
-              />
-            </svg>
-          </li>
-          <li>
-            Salads
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              fill="currentColor"
-              class="bi bi-arrow-down"
-              viewBox="0 0 16 16"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z"
-              />
-            </svg>
-          </li>
-          <li>
-            Desserts
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              fill="currentColor"
-              class="bi bi-arrow-down"
-              viewBox="0 0 16 16"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z"
-              />
-            </svg>
-          </li>
-          <li>
-            Drinks and Sides
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              fill="currentColor"
-              class="bi bi-arrow-down"
-              viewBox="0 0 16 16"
-            >
-              <path
-                fill-rule="evenodd"
-                d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z"
-              />
-            </svg>
-          </li>
-        </ul>
-      </nav>
-      <section class="items">
-        <h2 id="title">Burguers</h2>
+    <div class="box">
+      <div class="container">
+        <div class="banner">
+          <img src="./img/banner.svg" alt="" />
+        </div>
         <div class="hr"></div>
-        <div class="card-container"></div>
-        <div class="order-detail display-none">
-          <table>
-            <thead>
-              <th>Item</th>
-              <th>Qty.</th>
-              <th>Description</th>
-              <th>Unit Price</th>
-              <th>Amount</th>
-              <th>Modify</th>
-            </thead>
-            <tbody id="tabla"></tbody>
-          </table>
-          <div class="table-footer">
-            <p id="total">Total: $0.00</p>
+        <nav class="menu">
+          <ul>
+            <li class="menu-active">
+              Burguers
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-arrow-down"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z"
+                />
+              </svg>
+            </li>
+            <li>
+              Tacos
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-arrow-down"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z"
+                />
+              </svg>
+            </li>
+            <li>
+              Salads
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-arrow-down"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z"
+                />
+              </svg>
+            </li>
+            <li>
+              Desserts
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-arrow-down"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z"
+                />
+              </svg>
+            </li>
+            <li>
+              Drinks and Sides
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-arrow-down"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M8 1a.5.5 0 0 1 .5.5v11.793l3.146-3.147a.5.5 0 0 1 .708.708l-4 4a.5.5 0 0 1-.708 0l-4-4a.5.5 0 0 1 .708-.708L7.5 13.293V1.5A.5.5 0 0 1 8 1z"
+                />
+              </svg>
+            </li>
+          </ul>
+        </nav>
+        <section class="items">
+          <h2 id="title">Burguers</h2>
+          <div class="hr"></div>
+          <div class="card-container"></div>
+          <div class="order-detail display-none">
+            <table>
+              <thead>
+                <th>Item</th>
+                <th>Qty.</th>
+                <th>Description</th>
+                <th>Unit Price</th>
+                <th>Amount</th>
+                <th>Modify</th>
+              </thead>
+              <tbody id="tabla"></tbody>
+            </table>
+            <div class="table-footer">
+              <p id="total">Total: $0.00</p>
 
-            <div class="button-container">
-              <button class="cancel">Cancel</button>
-              <button class="confirm">Confirm Order</button>
+              <div class="button-container">
+                <button class="cancel">Cancel</button>
+                <button class="confirm">Confirm Order</button>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
-      <div class="modal display-none">
-        <h1>Cancel the order</h1>
-        <div class="hr"></div>
-        <p>Are you sure about cancelling the order?</p>
-        <div class="hr"></div>
-        <div class="buttons-cancel">
-          <button class="cancel-confirm">
-            Yes, I want to cancel the order
-          </button>
-          <button class="cancel-deny">
-            No, I want to continue adding products
-          </button>
+        </section>
+        <div class="modal display-none">
+          <h1>Cancel the order</h1>
+          <div class="hr"></div>
+          <p>Are you sure about cancelling the order?</p>
+          <div class="hr"></div>
+          <div class="buttons-cancel">
+            <button class="cancel-confirm">
+              Yes, I want to cancel the order
+            </button>
+            <button class="cancel-deny">
+              No, I want to continue adding products
+            </button>
+          </div>
         </div>
       </div>
+
       <footer class="footer">
         Contact us: +57 3102171020 - info@restaurant.com - @restaurant
       </footer>

@@ -306,4 +306,64 @@ nav.menu ul li svg {
   nav.menu.open ul {
     padding-bottom: 1em;
   }
+  #title {
+    font-size: 16px;
+  }
+  .order-detail {
+    margin: 30px 0;
+  }
+  .order-detail table {
+    background: rgba(196, 196, 196, 0.34);
+    border: 1px solid rgba(0, 0, 0, 0.38);
+    padding: 1rem !important;
+    border-collapse: unset;
+  }
+  .order-detail table thead {
+    display: none;
+  }
+  .order-detail table tbody tr {
+    background-color: transparent !important;
+  }
+  .order-detail table .tindex,
+  .order-detail table .tprice,
+  .order-detail table .tprice2 {
+    display: none;
+  }
+  .order-detail .table-footer {
+    margin-top: 2rem;
+    flex-direction: column;
+    height: auto;
+  }
+  .order-detail .table-footer p {
+    align-self: flex-start;
+  }
+  .order-detail .table-footer .button-container {
+    margin-top: 3rem;
+  }
+  footer.footer {
+    margin: auto;
+    bottom: 30px;
+  }
+
+  .box .container {
+    min-height: 70vh;
+  }
+  .modal {
+    position: relative;
+    top: unset;
+    left: unset;
+    transform: unset;
+    margin: 0 5%;
+    width: 90%;
+    height: 60vh;
+  }
+  .modal .buttons-cancel {
+    position: absolute;
+    bottom: 1em;
+    width: calc(100% - 2em);
+    right: 1em;
+  }
+  .modal button {
+    width: 100% !important;
+  }
 }
